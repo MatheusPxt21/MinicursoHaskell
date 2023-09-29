@@ -49,6 +49,7 @@ fibSeq = 0 : 1 : zipWith (+) fibSeq (tail fibSeq)
 
 -- aqui len retorna Int
 -- "tamanho da lista"
+-- len [1,2,4,2,5]
 len :: [a] -> Int
 len [] = 0
 -- h de head e t de tail
@@ -56,11 +57,13 @@ len (h:t) = 1 + len t
 
 
 -- "somatório"
+-- sum' [1,3,6]        
 sum' :: [Int] -> Int
 sum' [] = 0
 sum' (h:t) = h + sum' t 
 
--- 
+-- foldr (*) 1 [1,3,6] 
+-- foldr (+) 0 [1,3,6]  
 foldr' :: (a -> b -> b) -> b -> [a]  -> b
 foldr' f z [] = z 
 foldr' f z (h:t) = f h (foldr' f z t)
@@ -75,13 +78,20 @@ foldr' f z (h:t) = f h (foldr' f z t)
                          = 6
 -}
 
+-- filter' (\x -> x `mod` 2 == 1) [0 .. 25]
+--
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' f [] = []
 filter' f (h:t) = if f h 
     then h : filter' f t
     else filter' f t
 
-
+-- map' (1/) [1..10]
+-- 
 map' :: (a -> b) -> [a] -> [b]
 map' f [] = []
 map' f (h:t) = f h : map' f t
+
+
+quicksort :: (Ord a) => [a] -> [a]
+
