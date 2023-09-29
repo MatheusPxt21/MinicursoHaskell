@@ -34,13 +34,40 @@ fib2 :: Int -> Int
 fib2 0 = 0
 fib2 1 = 1
 fib2 n = fib' 0 1 2
-    where 
-        fib' n2 n1 i = 
-            if i == n 
-                then n2 + n1 
+    where
+        fib' n2 n1 i =
+            if i == n
+                then n2 + n1
                 else fib' (n1) (n2+n1) (i+1)
 
 -- lista infinita (?)
---Não terminou ainda
+-- Não terminou ainda
 fibSeq = 0 : 1 : zipWith (+) fibSeq (tail fibSeq)
 
+--aqui f pode ser de qualquer tipo
+--f :: [a] -> [a]
+
+-- aqui len retorna Int
+-- "tamanho da lista"
+len :: [a] -> Int
+len [] = 0
+-- h de head e t de tail
+len (h:t) = 1 + len t
+
+
+-- "somatório"
+sum' :: [Int] -> Int
+sum' [] = 0
+sum' (h:t) = h + sum' t 
+
+-- 
+foldr' :: (a -> b -> b) -> b -> [a]  -> b
+foldr' f z [] = z 
+foldr' f z (h:t) = f h (foldr' f z t)
+
+{-
+
+    foldr' (+) 0 [1,2,3] = (+) 1 (foldr' (+) 0 [2,3])
+                         = (+) 1 ((+) 2 foldr' (+) 0 [3]))
+                         = (+) 
+-}
