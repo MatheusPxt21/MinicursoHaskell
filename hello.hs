@@ -1,4 +1,8 @@
 --comentario é com dois hífens seguidos
+-- :! cls para limpar o terminal
+-- :l nomeDpPrograma.hs para compilar    
+
+import Data.List (partition, lookup)
 
 hello = putStrLn "Hello World!"
 
