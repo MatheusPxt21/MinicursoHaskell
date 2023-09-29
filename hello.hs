@@ -93,5 +93,12 @@ map' f [] = []
 map' f (h:t) = f h : map' f t
 
 
+
+-- quicksort [2,3,4,9,8,5]
 quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (pivot: t) = quicksort lt ++ [pivot] ++ quicksort gt
+    where lt = filter (< pivot) t
+          gt = filter (>= pivot) t
+
 
