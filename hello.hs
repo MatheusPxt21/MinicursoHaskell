@@ -81,4 +81,7 @@ filter' f (h:t) = if f h
     then h : filter' f t
     else filter' f t
 
- 
+
+map' :: (a -> b) -> [a] -> [b]
+map' f [] = []
+map' f (h:t) = f h : map' f t
