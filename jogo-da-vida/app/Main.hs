@@ -1,6 +1,6 @@
 module Main where
 
-import           Data.Matrix (Matrix, fromLists, prettyMatrix)
+import           Data.Matrix (Matrix, fromLists, prettyMatrix, toLists)
 import qualified Data.Matrix as M 
 import           Data.Maybe (fromMaybe)
 
@@ -27,10 +27,16 @@ atualizarCelula m (i, j) v = (v && (vivos == 2 || vivos == 3)) || vivos == 3
 
 main :: IO ()
 main = do
-    let fp = "life.txt"
+    let fp = "teste.txt"
     m <- lerInicial fp
     run m
     where 
         run m = do
-            putStrLn (prettyMatrix m)        
+            putStrLn (mostrarMatriz m)        
             run (atualizar m)
+
+mostrarMatriz :: Matrix Bool -> String 
+mostrarMatriz m = foldr (\a b -> a ++ "\n" ++ b) "" strings
+    where 
+        linhas = (toLists m)
+        strings = map (map (\v -> if v then '#' else '.')) linhas
