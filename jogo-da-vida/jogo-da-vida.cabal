@@ -36,3 +36,6 @@ executable jogo-da-vida
         gloss
     hs-source-dirs:   app
     default-language: Haskell2010
+
+
+    --Criar pasta diferente e dar cabal init, depois cabal run

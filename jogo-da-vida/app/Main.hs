@@ -27,7 +27,7 @@ atualizarCelula m (i, j) v = (v && (vivos == 2 || vivos == 3)) || vivos == 3
 
 main :: IO ()
 main = do
-    let fp = "teste.txt"
+    let fp = "life.txt"
     m <- lerInicial fp
     run m
     where 
