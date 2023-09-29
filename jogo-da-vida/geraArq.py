@@ -1,10 +1,12 @@
-# Tamanho da matriz quadrada
-tamanho_matriz = 90
+import random
 
-# Gere a matriz com pontos e hashtags
-matriz = [['.' if (i + j) % 2 == 0 else '#' for i in range(tamanho_matriz)] for j in range(tamanho_matriz)]
+# Tamanho da matriz quadrada
+tamanho_matriz = 100
+
+# Gere a matriz aleatória com pontos e hashtags
+matriz = [['.' if random.random() < 0.5 else '#' for _ in range(tamanho_matriz)] for _ in range(tamanho_matriz)]
 
 # Salve a matriz em um arquivo de texto
-with open('jogo-da-vida/matriz2.txt', 'w') as arquivo:
+with open('jogo-da-vida/matriz_randomica2.txt', 'w') as arquivo:
     for linha in matriz:
         arquivo.write(''.join(linha) + '\n')

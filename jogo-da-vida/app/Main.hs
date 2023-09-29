@@ -33,7 +33,7 @@ mostrarMatriz m = foldr (\a b -> a ++ "\n" ++ b) "" strings
 
 
 cellSize :: Int
-cellSize = 10
+cellSize = 5
  
 toPicture :: Matrix Bool -> Picture
 toPicture grid =
@@ -61,7 +61,7 @@ toPicture' (i,j) v =
 
 main :: IO ()
 main = do
-    let fp = "matriz2.txt"
+    let fp = "matriz_randomica2.txt"
     m <- lerInicial fp
     run m
     where 
