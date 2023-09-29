@@ -28,3 +28,18 @@ fib :: Int -> Int
 fib 0 = 0
 fib 1 = 1
 fib n = fib(n-1)+fib(n-2)
+
+
+fib2 :: Int -> Int
+fib2 0 = 0
+fib2 1 = 1
+fib2 n = fib' 0 1 2
+    where 
+        fib' n2 n1 i = 
+            if i == n 
+                then n2 + n1 
+                else fib' (n1) (n2+n1) (i+1)
+
+-- lista infinita (?)
+--fibSeq = 0 : 1 : zipWith (+) fibSeq (tail fibSeq)
+
