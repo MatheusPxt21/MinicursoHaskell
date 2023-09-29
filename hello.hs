@@ -22,3 +22,9 @@ bhaskara a b c
         d = delta a b c
         x' = (-b + sqrt d) / (2*a)
         x'' = (-b - sqrt d) / (2*a)
+
+--função fib recebe um int e devolve um int
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib(n-1)+fib(n-2)
