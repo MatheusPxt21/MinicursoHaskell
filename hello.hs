@@ -41,5 +41,6 @@ fib2 n = fib' 0 1 2
                 else fib' (n1) (n2+n1) (i+1)
 
 -- lista infinita (?)
---fibSeq = 0 : 1 : zipWith (+) fibSeq (tail fibSeq)
+--Não terminou ainda
+fibSeq = 0 : 1 : zipWith (+) fibSeq (tail fibSeq)
 
