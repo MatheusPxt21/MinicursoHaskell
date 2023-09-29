@@ -20,7 +20,7 @@ atualizarCelula m (i, j) v = (v && (vivos == 2 || vivos == 3)) || vivos == 3
     where
         deslocamentos = [(-1, -1), (-1, 0), (-1, 1),
                          (0, -1),           (0, 1),
-                         (1, 1),   (1, 0),  (1, 1)]
+                         (1, -1),   (1, 0),  (1, 1)]
         vizinhos = map (\(di,dj) -> M.safeGet (i+di) (j+dj) m) deslocamentos
         vizinhos' = map (fromMaybe False) vizinhos
         vivos = length (filter (\x -> x) vizinhos')
@@ -51,7 +51,7 @@ toPicture grid =
 toPicture' :: (Int, Int) -> Bool -> Picture
 toPicture' (i,j) v =
     Translate x y $
-        Color (makeColor 1 1 1 (if v then 1 else 0)) $
+        Color (makeColor 1 1 1 (if v then 1 else 0)) $ 
             rectangleSolid (fromIntegral cellSize) (fromIntegral cellSize)
     where
         x = (fromIntegral j - 0.5) * fromIntegral cellSize
@@ -61,7 +61,7 @@ toPicture' (i,j) v =
 
 main :: IO ()
 main = do
-    let fp = "test.txt"
+    let fp = "arqHenrique.txt"
     m <- lerInicial fp
     run m
     where 
@@ -72,7 +72,7 @@ main = do
             let evolve _ _ = atualizar
             simulate
                 (InWindow "Game of Life" tamanho (0, 0)) 
-                black 1 m toPicture evolve
+                blue 12 m toPicture evolve
 
 
            {-
