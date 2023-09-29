@@ -75,4 +75,10 @@ foldr' f z (h:t) = f h (foldr' f z t)
                          = 6
 -}
 
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' f [] = []
+filter' f (h:t) = if f h 
+    then h : filter' f t
+    else filter' f t
 
+ 
