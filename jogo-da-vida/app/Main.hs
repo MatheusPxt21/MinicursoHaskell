@@ -33,7 +33,7 @@ mostrarMatriz m = foldr (\a b -> a ++ "\n" ++ b) "" strings
 
 
 cellSize :: Int
-cellSize = 5
+cellSize = 15
  
 toPicture :: Matrix Bool -> Picture
 toPicture grid =
@@ -61,7 +61,7 @@ toPicture' (i,j) v =
 
 main :: IO ()
 main = do
-    let fp = "matriz_randomica2.txt"
+    let fp = "test.txt"
     m <- lerInicial fp
     run m
     where 
@@ -72,7 +72,7 @@ main = do
             let evolve _ _ = atualizar
             simulate
                 (InWindow "Game of Life" tamanho (0, 0)) 
-                black 12 m toPicture evolve
+                black 1 m toPicture evolve
 
 
            {-
