@@ -100,5 +100,8 @@ quicksort [] = []
 quicksort (pivot: t) = quicksort lt ++ [pivot] ++ quicksort gt
     where lt = filter (< pivot) t
           gt = filter (>= pivot) t
-
+    {-
+        where(lt, gt) = partition (< pivot) t
+        --mas para isso precisa de import Data.List (partition)
+    -}
 
